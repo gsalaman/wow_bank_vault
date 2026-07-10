@@ -1,9 +1,34 @@
 # WOW Bank Vault program
 MakerEdJam 2026 Bank Vault project code.
 
-## Quick links:
-[Microbit Pinout](https://github.com/gsalaman/wow_bank_vault/blob/master/microbit_pinout.md)  
+## Software Overview
+We have two main states:
+* Solving the key puzzle
+* Solving the shapes puzzle
+
+In the key puzzle state, we're waiting for the button in the key-compartment to be pressed.  Once pressed, the key puzzle led ring lights up, and then the shape game starts.
+
+In the shape game, we randomly pick one and light up one shape.  When that shape is pressed, we flash that symbol, and then pick and light up another shape.  Once all four have been pressed, we open up the bank vault.  At this point, we go back to waiting for the key puzzle to be solved again.
+
+## Hardware Interfaces
+The overall microbit pinout can be found here:
+[Microbit Pinout](https://github.com/gsalaman/wow_bank_vault/blob/master/microbit_pinout.md) 
+
+We're using the Dawson LED translator board to supply power (5v), do voltage translations, and give us an easier pin breakout platform.
+
+We've got an RGB LED strip to drive the "shape" symbols, and an RGB LED ring as our key game indicator.
+
+Inside the key puzzle is a light-up arcade button.  We give 5v (always on) to this.
+
+The vault is driven by a 12V solenoid, triggered by a transistor circuit controlled by Microbit pin 8.
+
+We're using capacitive touch plates with copper tape to drive the 4 symbol "buttons".  These are connnected to a sparkfun breakout board (AT42QT1010).
+Each of those breakout boards needs 3.3v, Ground, and an pin to use as input:  1 means the sensor is pressed; 0 means "not pressed".
+
+We've got a distribution board behind the touch symbols to simplify wiring to the capacitive touch board.  This board also contains the transistor circuit.
+Schematic here:
 [Distribution board](https://github.com/gsalaman/wow_bank_vault/blob/master/distribution_board.md)
+
 
 # MakeCode Instructions
 
