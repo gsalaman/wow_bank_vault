@@ -18,7 +18,7 @@ We're using the Dawson LED translator board to supply power (5v), do voltage tra
 
 We've got an RGB LED strip to drive the "shape" symbols, and an RGB LED ring as our key game indicator.
 
-Inside the key puzzle is a light-up arcade button.  We give 5v (always on) to this.
+Inside the key puzzle is a light-up arcade button.  We give 5v (always on) to this, as well as routing the wires to Pin 11 (button B)
 
 The vault is driven by a 12V solenoid, triggered by a transistor circuit controlled by Microbit pin 8.
 
