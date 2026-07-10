@@ -7,7 +7,7 @@ There are two electronic components to the key puzzle:
 1) an arcade-style button that lives in the hidden compartment.  This button lights up with 5v.
 2) an RGB-LED ring (size 16) that lights up (in fun patterns) when the button is pressed.
 
-For our first iteration, pressing the button also starts the shape game.
+For our first iteration, pressing that button also starts the shape game.
 
 ### Shape Game
 We've got a display with 4 shapes on it:
