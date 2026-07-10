@@ -1,7 +1,7 @@
 # WOW Bank Vault program
 MakerEdJam 2026 Bank Vault project code.
 
-(Microbit Pinout)[https://github.com/gsalaman/wow_bank_vault/blob/master/microbit_pinout.md]
+[https://github.com/gsalaman/wow_bank_vault/blob/master/microbit_pinout.md](Microbit Pinout)
 
 # MakeCode Instructions
 
