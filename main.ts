@@ -20,7 +20,31 @@ function checkForCurrentSymbolPress () {
 }
 function open_vault () {
     pins.digitalWritePin(DigitalPin.P8, 1)
-    basic.pause(1000)
+    for (let index = 0; index < 5; index++) {
+        showAllShapes()
+        basic.pause(200)
+        shape_display_strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        basic.pause(200)
+    }
+    shape_display_strip.showColor(neopixel.colors(NeoPixelColors.Black))
+    for (let index = 0; index < 10; index++) {
+        circle_display.showColor(neopixel.colors(NeoPixelColors.Yellow))
+        basic.pause(100)
+        square_display.showColor(neopixel.colors(NeoPixelColors.Green))
+        basic.pause(100)
+        triangle_display.showColor(neopixel.rgb(0, 151, 178))
+        basic.pause(100)
+        heart_display.showColor(neopixel.colors(NeoPixelColors.Red))
+        basic.pause(100)
+        circle_display.showColor(neopixel.colors(NeoPixelColors.Black))
+        basic.pause(100)
+        square_display.showColor(neopixel.colors(NeoPixelColors.Black))
+        basic.pause(100)
+        triangle_display.showColor(neopixel.colors(NeoPixelColors.Black))
+        basic.pause(100)
+        heart_display.showColor(neopixel.colors(NeoPixelColors.Black))
+        basic.pause(100)
+    }
     pins.digitalWritePin(DigitalPin.P8, 0)
 }
 function play_shape_game () {
@@ -49,7 +73,8 @@ function showAllShapes () {
     square_display.showColor(neopixel.colors(NeoPixelColors.Green))
 }
 function show_key_success () {
-    key_circle_lights.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+    key_circle_low.showRainbow(120, 240)
+    key_circle_high.showRainbow(240, 120)
     for (let index = 0; index < 48; index++) {
         key_circle_lights.rotate(-1)
         key_circle_lights.show()
@@ -97,9 +122,13 @@ let triangle_display: neopixel.Strip = null
 let square_display: neopixel.Strip = null
 let circle_display: neopixel.Strip = null
 let shape_display_strip: neopixel.Strip = null
+let key_circle_high: neopixel.Strip = null
+let key_circle_low: neopixel.Strip = null
 let key_circle_lights: neopixel.Strip = null
 led.enable(false)
 key_circle_lights = neopixel.create(DigitalPin.P2, 16, NeoPixelMode.RGB)
+key_circle_low = key_circle_lights.range(0, 8)
+key_circle_high = key_circle_lights.range(8, 8)
 shape_display_strip = neopixel.create(DigitalPin.P0, 30, NeoPixelMode.RGB)
 circle_display = shape_display_strip.range(1, 5)
 square_display = shape_display_strip.range(9, 6)
