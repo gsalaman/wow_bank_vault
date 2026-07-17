@@ -21,7 +21,8 @@ This is backlight by a single RGB LED strip.
 In addition, there are 4 "hand" symbols with those colors/shapes below this display.  These have capacitive touch sensors, specifically a copper plate connected to a Sparkfun capacitive touch breakout board.
 This board translates the cap-touch signal into a logic signal:  1 means pressed, 0 means not pressed.  Each of these boards is connected to input pins on the microbit, and require 3.3v and ground.
 
-Finally, we've got a solenoid lock connected to a 12v transistor circut, triggered by a microbit pin to open the spring-loaded vault when the signal goes high.
+Finally, we've got a solenoid lock connected to a 12v transistor circut, triggered by a microbit pin to unlock vault when the signal goes high.
+There is an RGB LED above the vault...green means unlocked, red means locked.
 
 
 ## Software Overview
@@ -48,10 +49,11 @@ The vault is driven by a 12V solenoid, triggered by a transistor circuit control
 We're using capacitive touch plates with copper tape to drive the 4 symbol "buttons".  These are connnected to a sparkfun breakout board (AT42QT1010).
 Each of those breakout boards needs 3.3v, Ground, and an pin to use as input:  1 means the sensor is pressed; 0 means "not pressed".
 
-We've got a distribution board behind the touch symbols to simplify wiring to the capacitive touch board.  This board also contains the transistor circuit.
+We've got a distribution board behind the touch symbols to simplify wiring to the capacitive touch board.  This board also contains the transistor circuit and the vault LED control circuit.
 Schematic here:
 [Distribution board](https://github.com/gsalaman/wow_bank_vault/blob/master/distribution_board.md)
 
+An ATTiny85 drives the LED over the vault; it's code can be found [here](https://github.com/gsalaman/attiny_vault_led)
 
 # MakeCode Instructions
 
